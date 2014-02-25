@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Apt-install various things necessary for Ruby, guest additions, etc.
+# apt-install various things necessary for Ruby, guest additions, etc.
 apt-get -y install gcc build-essential
 
-# Enable japanese
-cat << '__EOF__' > /tmp/set_lang.sh
-case $TERM in
-  linux) LANG=C ;;
-  *) LANG=ja_JP.UTF-8 ;;
-esac
+# update /etc/skel
+cat << '__EOF__' >> /etc/skel/.bashrc
+
+if [ -d $HOME/.bashrc.d ]; then
+  for i in $HOME/.bashrc.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
 __EOF__
-mv /tmp/set_lang.sh /etc/profile.d/
+cp /etc/skel/.bashrc ~/.bashrc
+chown vagrant:vagrant ~/.bashrc

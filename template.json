@@ -64,6 +64,7 @@
       "scripts": [
         "scripts/base.sh",
         "scripts/virtualbox.sh",
+        "scripts/locale.sh",
         "scripts/cleanup.sh",
         "scripts/zerodisk.sh"
       ],
