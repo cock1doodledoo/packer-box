@@ -1,4 +1,8 @@
-set VM_NAME=base
+@echo off
+
+for /f "tokens=2" %%t in ('findstr \"hostname\": template.json') do set STR=%%t
+
+set VM_NAME=%STR:~1,-2%
 set LOG_FILE=build.log
 
 if exist %LOG_FILE% del %LOG_FILE%
