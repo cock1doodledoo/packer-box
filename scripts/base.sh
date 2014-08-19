@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# apt-install various things necessary for Ruby, guest additions, etc.
-apt-get -y install gcc build-essential
-
 # be structured bashrc
 cat << '__EOF__' >> /etc/skel/.bashrc
 

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install nessesary packages to compile guest additions
+apt-get -y install gcc make
+
 # install the VirtualBox guest additions
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 VBOX_ISO=VBoxGuestAdditions_$VBOX_VERSION.iso
