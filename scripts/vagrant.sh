@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Set up sudo
+# skip password in sudo
 echo %vagrant ALL=NOPASSWD:ALL > /etc/sudoers.d/vagrant
 chmod 0440 /etc/sudoers.d/vagrant
 
-# Installing vagrant keys
+# installing vagrant keys
 if [ ! -d  /home/vagrant/.ssh ]; then
   mkdir /home/vagrant/.ssh
   chmod 700 /home/vagrant/.ssh
