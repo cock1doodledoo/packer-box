@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # install nessesary packages to compile guest additions
 apt-get -y install gcc make
