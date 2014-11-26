@@ -8,7 +8,7 @@ HOSTNAME = "check-with-vagrant"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = HOSTNAME
   config.vm.box = "base"
-  config.vm.box_url = "../base.box"
+  config.vm.box_url = "base.box"
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
     vb.name = HOSTNAME
