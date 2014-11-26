@@ -1,4 +1,4 @@
 packer_cache/
 *.box
-*.log
+log/
 .vagrant/
