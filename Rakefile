@@ -88,3 +88,15 @@ namespace :box do
   end
 
 end
+
+desc 'login with TeraTerm SSH'
+task :ssh do
+  host, port, user, keyfile = nil, nil, nil, nil
+  `vagrant ssh-config`.each_line do |l|
+    host = l.sub('HostName','').strip if l.strip.match(/^HostName\s/)
+    port = l.sub('Port','').strip if l.strip.match(/^Port\s/)
+    user = l.sub('User','').strip if l.strip.match(/^User\s/)
+    keyfile = l.sub('IdentityFile','').strip if l.strip.match(/^IdentityFile\s/)
+  end
+  spawn({"PATH" => "C:\\Program Files\\teraterm"}, "ttermpro #{host}:#{port} /ssh /auth=publickey /user=#{user} /keyfile=#{keyfile}")
+end
