@@ -48,6 +48,12 @@ namespace :clean do
     rm_rf vm_dir if Dir.exist?(vm_dir)
   end
 
+  desc 'remove box_file'
+  task :box_file do
+    box_file = "#{nodename}.box"
+    rm box_file if File.exist?(box_file)
+  end
+
 end
 
 desc 'packer build'
