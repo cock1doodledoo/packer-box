@@ -7,9 +7,9 @@ build my base-box using the [packer]
 * Japanese keyboad
 
 ### depend on
-* [packer] 0.7.2
+* [packer] 0.7.5
 * [virtualbox] 4.3.20
-* [vagrant] 1.6.5
+* [vagrant] 1.7.1
 * [ruby] 2.1.3
 * [rake] 10.1.0
 
