@@ -13,3 +13,10 @@ tool-set for building my base-box
 * [ruby](https://www.ruby-lang.org/ "ruby") 2.1.3
 * [rake](http://docs.seattlerb.org/rake/ "rake") 10.1.0
 
+### set up environment
+for windows pc
+``` cmd
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+cinst packages.config
+gem install rake
+```
