@@ -64,6 +64,14 @@ task :build do
   sh "echo --- packer build finished at #{Time.now} --- >> #{log}"
 end
 
+desc 'packer build with debug-log'
+task :debug do
+  log = Time.now.strftime("log/%Y%m%d-%H%M%S.log")
+  sh "echo --- packer build requested at #{Time.now} --- >> #{log}"
+  sh "set PACKER_LOG=1 && packer build template.json >> #{log} 2>&1"
+  sh "echo --- packer build finished at #{Time.now} --- >> #{log}"
+end
+
 desc 'same as box:reload'
 task :box => 'box:reload'
 
