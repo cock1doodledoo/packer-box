@@ -37,13 +37,20 @@
     {
       "execute_command": "echo {{user `password`}} | sudo -E -S bash {{ .Path }}",
       "scripts": [
-        "scripts/vagrant.sh",
-        "scripts/update.sh"
+        "scripts/update.sh",
+        "scripts/vagrant.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "inline": [
+        "sudo -S reboot"
       ],
       "type": "shell"
     },
     {
       "execute_command": "sudo -E bash {{ .Path }}",
+      "pause_before": "20s",
       "scripts": [
         "scripts/base.sh",
         "scripts/virtualbox.sh",
