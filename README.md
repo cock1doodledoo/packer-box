@@ -8,7 +8,7 @@ tool-set for building my base-box
 
 ### depend on
 * [packer](https://www.packer.io/ "packer") 0.8.4
-* [virtualbox](https://www.virtualbox.org/ "virtualbox") 5.0.2
+* [virtualbox](https://www.virtualbox.org/ "virtualbox") 5.0.10
 * [vagrant](https://www.vagrantup.com/ "vagrant") 1.7.4
 * [ruby](https://www.ruby-lang.org/ "ruby") 2.1.6
 * [rake](http://docs.seattlerb.org/rake/ "rake") 10.1.0
