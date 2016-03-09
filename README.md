@@ -7,10 +7,10 @@ tool-set for building my base-box
 * Japanese keyboad
 
 ### depend on
-* [packer](https://www.packer.io/ "packer") 0.8.6
-* [virtualbox](https://www.virtualbox.org/ "virtualbox") 5.0.14
+* [packer](https://www.packer.io/ "packer") 0.9.0
+* [virtualbox](https://www.virtualbox.org/ "virtualbox") 5.0.16
 * [vagrant](https://www.vagrantup.com/ "vagrant") 1.8.1
-* [ruby](https://www.ruby-lang.org/ "ruby") 2.2.3
+* [ruby](https://www.ruby-lang.org/ "ruby") 2.2.4
 * [rake](http://docs.seattlerb.org/rake/ "rake") 10.4.2
 
 ### set up environment
