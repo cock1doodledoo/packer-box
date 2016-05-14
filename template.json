@@ -2,28 +2,28 @@
   "builders": [
     {
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz ",
-        "auto=true ",
-        "fb=false ",
-        "keymap=jp ",
-        "hostname={{user `hostname`}} ",
-        "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-        "DEBCONF_DEBUG=5 ",
-        "initrd=/install/initrd.gz -- <enter>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
       "guest_additions_path": "VBoxGuestAdditions_{{ .Version }}.iso",
-      "guest_os_type": "Ubuntu_64",
+      "guest_os_type": "RedHat_64",
       "http_directory": "http",
-      "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
-      "iso_checksum_type": "md5",
-      "iso_url": "http://releases.ubuntu.com/trusty/ubuntu-14.04.3-server-amd64.iso",
+      "iso_checksum": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://www.ftp.ne.jp/Linux/packages/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
       "shutdown_command": "sudo -S shutdown -P now",
       "ssh_password": "{{user `password`}}",
       "ssh_port": 22,
       "ssh_timeout": "20m",
       "ssh_username": "{{user `username`}}",
       "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--vrde",
+          "off"
+        ]
+      ],
       "vm_name": "{{user `hostname`}}"
     }
   ],
@@ -35,19 +35,17 @@
   ],
   "provisioners": [
     {
-      "execute_command": "echo {{user `password`}} | sudo -E -S bash {{ .Path }}",
+      "execute_command": "bash {{ .Path }}",
       "scripts": [
+        "scripts/locale.sh",
         "scripts/vagrant.sh",
-        "scripts/update.sh"
+        "scripts/virtualbox.sh"
       ],
       "type": "shell"
     },
     {
       "execute_command": "sudo -E bash {{ .Path }}",
       "scripts": [
-        "scripts/base.sh",
-        "scripts/virtualbox.sh",
-        "scripts/locale.sh",
         "scripts/cleanup.sh",
         "scripts/zerodisk.sh"
       ],

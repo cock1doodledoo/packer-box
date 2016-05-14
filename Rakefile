@@ -58,6 +58,7 @@ end
 
 desc 'packer build'
 task :build do
+  Dir.mkdir('log') unless Dir.exist?('log')
   log = Time.now.strftime("log/%Y%m%d-%H%M%S.log")
   sh "echo --- packer build requested at #{Time.now} --- >> #{log}"
   sh "packer build template.json >> #{log}"
@@ -66,6 +67,7 @@ end
 
 desc 'packer build with debug-log'
 task :debug do
+  Dir.mkdir('log') unless Dir.exist?('log')
   log = Time.now.strftime("log/%Y%m%d-%H%M%S.log")
   sh "echo --- packer build requested at #{Time.now} --- >> #{log}"
   sh "set PACKER_LOG=1 && packer build template.json >> #{log} 2>&1"
