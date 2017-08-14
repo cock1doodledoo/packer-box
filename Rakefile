@@ -108,5 +108,5 @@ task :ssh do
     user = l.sub('User','').strip if l.strip.match(/^User\s/)
     keyfile = l.sub('IdentityFile','').strip if l.strip.match(/^IdentityFile\s/)
   end
-  spawn({"PATH" => "C:\\Program Files\\teraterm"}, "ttermpro #{host}:#{port} /ssh /auth=publickey /user=#{user} /keyfile=#{keyfile}")
+  spawn({"PATH" => 'C:\Program Files (x86)\teraterm'}, "ttermpro #{host}:#{port} /ssh /auth=publickey /user=#{user} /keyfile=#{keyfile}")
 end
